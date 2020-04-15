@@ -1115,6 +1115,17 @@ class Client
     }
 
     /**
+     * Get Option Set Options
+     *
+     * @param $id
+     * @return array
+     */
+    public static function getOptionSetOption($id)
+    {
+        return self::getResource('/optionsets/' . $id . '/options');
+    }
+
+    /**
      * Returns the total number of option sets in the collection.
      *
      * @return int
