@@ -2090,4 +2090,15 @@ class Client
         $filter = Filter::create($filter);
         return self::getCollection('/products/'.$product_id.'/rules' . $filter->toQuery(), 'Rule');
     }
+
+    /**
+     * A single customer group by given id.
+     *
+     * @param int $id group id
+     * @return Resources\CustomerGroup
+     */
+    public static function getCustomerGroup($id)
+    {
+        return self::getResource('/customer_groups/' . $id, 'CustomerGroup');
+    }
 }
