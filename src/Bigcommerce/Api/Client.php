@@ -2053,4 +2053,16 @@ class Client
         $filter = Filter::create($filter);
         return self::getCollection('/products/'.$productId.'/skus' . $filter->toQuery(), 'Sku');
     }
+
+    /**
+     * Delete the given optionValue.
+     *
+     * @param int $optionId optionId
+     * @param int $id optionValueId
+     * @return mixed
+     */
+    public static function deleteOptionValue($optionId, $id)
+    {
+        return self::deleteResource('/options/' . $optionId .'/values/'. $id);
+    }
 }
