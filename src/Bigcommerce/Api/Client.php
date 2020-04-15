@@ -2078,4 +2078,16 @@ class Client
         $filter = Filter::create($filter);
         return self::getCollection('/options/' . $optionId . '/values' . $filter->toQuery(), 'OptionValue');
     }
+
+    /**
+     * Get collection of product rules by Product
+     *
+     * @param array $filter
+     * @return mixed
+     */
+    public static function getRulesByProduct($product_id, $filter = array())
+    {
+        $filter = Filter::create($filter);
+        return self::getCollection('/products/'.$product_id.'/rules' . $filter->toQuery(), 'Rule');
+    }
 }
