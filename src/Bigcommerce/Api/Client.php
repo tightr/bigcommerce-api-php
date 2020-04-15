@@ -2065,4 +2065,17 @@ class Client
     {
         return self::deleteResource('/options/' . $optionId .'/values/'. $id);
     }
+
+    /**
+     * Return the collection of all option values By OptionID
+     *
+     * @param int $optionId optionId
+     * @param array $filter
+     * @return array
+     */
+    public static function getOptionValuesByOption($optionId, $filter = array())
+    {
+        $filter = Filter::create($filter);
+        return self::getCollection('/options/' . $optionId . '/values' . $filter->toQuery(), 'OptionValue');
+    }
 }
